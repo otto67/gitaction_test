@@ -13,7 +13,7 @@ class FirstClass {
     public:
         FirstClass() {myInt = 0;}
         FirstClass(int a) {myInt = a;};
-        ~FirstClass(){if (myIntPointer != nullptr) {delete myIntPointer; std::cout<<"Freeing memory \n"; } };
+        ~FirstClass(){if (myIntPointer != nullptr) { delete myIntPointer; std::cout<<"Freeing memory \n"; } };
         void setFCWorker(int (*a)(int, int*));
         virtual int getInt();
         int doStuffFirst();
