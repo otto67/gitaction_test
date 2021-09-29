@@ -1,6 +1,4 @@
 name: C/C++ CI
-
-name: GitHub Actions Demo
 on: 
     push:
       branches: [ master, develop ]
