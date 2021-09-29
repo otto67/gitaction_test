@@ -21,6 +21,8 @@ int myFunc3(int a, int* b){
 
 int main(int nargs, char** args){
 
+    std::cout<<"Starting, nargs is "<<nargs<<std::endl; 
+
     if (nargs > 1){
         return nargs;
     }
