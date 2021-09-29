@@ -16,7 +16,7 @@ class FirstClass {
         ~FirstClass(){if (myIntPointer != nullptr) { delete myIntPointer; std::cout<<"Freeing memory \n"; } };
         void setFCWorker(int (*a)(int, int*));
         virtual int getInt();
-        int doStuffFirst();
+        int doStuffFirst( );
         void allocMem(){myIntPointer = new int[3]; myIntPointer[0] = 1; myIntPointer[1] = 2; myIntPointer[2] = 3;}                
 };
 
