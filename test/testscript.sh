@@ -11,7 +11,7 @@ black_box_test () {
     arg="5"
     if (( $# > 0 ))
     then
-        arg="$1"
+        arg=$1
     fi
 
     ../bin/main "$arg"
