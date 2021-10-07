@@ -34,4 +34,19 @@ jobs:
           chmod +x testscript.sh
           ./testscript.sh 14
         shell: bash
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: .
+          retention-days: 5
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  Run-code: # Create job run code just to see how download artifact works
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name:
+        run: |
+          ./bin/main
+        shell: bash
