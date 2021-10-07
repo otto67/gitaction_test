@@ -44,7 +44,7 @@ jobs:
   Run-code: # Create job run code just to see how download artifact works
     runs-on: ubuntu-latest
     steps:
-       -name: Download artifact
+      - name: Download artifact
         uses: actions/download-artifact@v2
         with:
           name: my-artifact
