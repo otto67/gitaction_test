@@ -7,6 +7,7 @@ on:
     
 jobs:
   Test-code:
+    name: Testing
     runs-on: ubuntu-latest
     steps:
 #      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -42,6 +43,8 @@ jobs:
           retention-days: 5
       - run: echo "🍏 This job's status is ${{ job.status }}."
   Run-code: # Create job run code just to see how download artifact works
+    name: Running
+    needs: Test-code
     runs-on: ubuntu-latest
     steps:
       - name: Download artifact
