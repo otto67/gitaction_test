@@ -11,7 +11,7 @@ black_box_test () {
     arg="5"
     if (( $# > 0 ))
     then
-        arg=$1
+        arg="$1"
     fi
 
     ../bin/main "$arg"
@@ -27,5 +27,5 @@ if (( $# > 0 && "$1" == "unit" ))
 then
     unit_test
 else
-    black_box_test    
+    black_box_test("$1")    
 fi
