@@ -24,7 +24,7 @@ jobs:
           make test
           cd test
           make test
-          ls -R test
+          ls -R
       - name: Run test code
         run: |
           chmod +x testscript.sh
