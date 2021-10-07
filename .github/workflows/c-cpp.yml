@@ -39,7 +39,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
   Run-code: # Create job run code just to see how download artifact works
     name: Running
-    needs: Upload-code
+    needs: Test-code
     runs-on: ubuntu-latest
     steps:
       - name: Download artifact
