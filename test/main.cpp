@@ -38,9 +38,9 @@ int main(int nargs, char** args){
     x2 = c.getInt();
 
     if (x2 == 30)
-        std::cout<<"Test 2: PASS \n";
+        std::cout<<"Test 3: PASS \n";
     else {
-        std::cout<<"Test 2: FAIL \n";
+        std::cout<<"Test 3: FAIL \n";
         passed = false;
     }
     if (passed)

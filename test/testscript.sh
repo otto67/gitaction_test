@@ -4,7 +4,6 @@ unit_test () {
     echo Performing unit testing
     ./tester
     echo Test program returned $?
-    return $?
 }
 
 black_box_test () {

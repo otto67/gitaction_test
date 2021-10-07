@@ -15,20 +15,27 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
+      - name: Workspace direectory is
         run: |
-          ls ${{ github.workspace }}
+          echo ${{ github.workspace }}
           
       - name: Compile test code 
         run: | 
           make test
           cd test
           make test
-          ls -R
       - name: Run test code
         run: |
           cd test
           chmod +x testscript.sh
           chmod +x main.cpp
-          ./tester
+          ./testscript.sh unit
+      - name: Compile code
+          make all
+      - name: Run black box testing
+        run: |
+            cd test
+            ./testscript.sh 15
+      - name: Run code
+          run: ./bin/main
       - run: echo "🍏 This job's status is ${{ job.status }}."
