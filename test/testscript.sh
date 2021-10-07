@@ -29,4 +29,3 @@ then
 else
     black_box_test "$1"    
 fi
-return 0
