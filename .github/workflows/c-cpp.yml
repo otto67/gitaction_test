@@ -29,12 +29,7 @@ jobs:
           cd test
           chmod +x testscript.sh
           ./testscript.sh 14
-        shell: bash
-  Upload-code:
-    runs-on: ubuntu-latest
-    name: Testing
-    needs: Test-code
-    steps:      
+        shell: bash    
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v2
         with:
