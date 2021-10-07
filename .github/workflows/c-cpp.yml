@@ -10,13 +10,8 @@ jobs:
     name: Testing
     runs-on: ubuntu-latest
     steps:
-#      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-#      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-#      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v2
-#      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-# "${{ github.workspace }}"
       - name: Compile test code 
         run: | 
           make test
@@ -35,6 +30,9 @@ jobs:
           chmod +x testscript.sh
           ./testscript.sh 14
         shell: bash
+  Upload-code:
+    name: Testing
+    needs: Test-code      
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v2
         with:
@@ -44,7 +42,7 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
   Run-code: # Create job run code just to see how download artifact works
     name: Running
-    needs: Test-code
+    needs: Upload-code
     runs-on: ubuntu-latest
     steps:
       - name: Download artifact
