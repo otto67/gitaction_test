@@ -27,5 +27,5 @@ if (( $# > 0 && "$1" == "unit" ))
 then
     unit_test
 else
-    black_box_test("$1")    
+    black_box_test "$1"    
 fi
