@@ -3,26 +3,24 @@
 #include "FirstClass.h"
 
 myData myFunc1(void* data){
-    std::cout<<"myFunc1 \n";
     myData* tmp = (myData*) data;
     myData retval {tmp->a*5, tmp->b*10};
     return retval;    
 }
 
 int myFunc2(int a, int* b){
-    std::cout<<"myFunc2 \n";
     return a + 10*(*b);
 }
 
 int myFunc3(int a, int* b){
-    std::cout<<"myFunc3 \n";
     return a - *b;
 }
 
 int main(int nargs, char** args){
 
     if (nargs > 1){
-        return nargs;
+        std::cout<<"Main: input is "<<args[1]<<std::endl;
+        return atoi(args[1]);
     }
 
     int tmp;
@@ -43,7 +41,7 @@ int main(int nargs, char** args){
     c.setFCWorker(myFunc3);
     tmp = c.doStuffFirst();
     c.printData();
-    std::cout<<"FirstDerivedClass, got: "<<tmp<<" and "<<a.getInt()<<std::endl;   
+    std::cout<<"FirstDerivedClass, doStuff: "<<tmp<<" and printData: "<<a.getInt()<<std::endl;   
 
     return 0;
 }

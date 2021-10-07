@@ -4,8 +4,8 @@ CXX_FLAGS := -std=c++17 -ggdb
 BIN     := bin
 SRC     := src
 INCLUDE := include
-
-LIBRARIES   := ptread
+TESTLIB := test/lib
+LIBRARIES   := 
 EXECUTABLE  := main
 
 
@@ -16,6 +16,17 @@ run: clean all
 
 $(BIN)/$(EXECUTABLE): $(SRC)/*.cpp
 	$(CXX) $(CXX_FLAGS) -I$(INCLUDE) $^ -o $@ $(LIBRARIES)
+
+test: clean $(SRC)/*Class.o
+	ar rcs $(TESTLIB)/libtestlib.a *.o  
+	-rm *.o
+
+$(SRC)/*Class.o: $(SRC)/*Class.cpp
+	$(CXX) $(CXX_FLAGS) -c -I$(INCLUDE) $^
+
+
+fresh:
+	-rm *.o
 
 clean:
 	-rm $(BIN)/*

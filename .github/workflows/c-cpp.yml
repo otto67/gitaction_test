@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 name: C/C++ CI
+=======
+name: CI/CD test using C++ 
+>>>>>>> develop
 on: 
     push:
       branches: [ master, develop ]
@@ -6,17 +10,48 @@ on:
       branches: [ master ]
     
 jobs:
-  Explore-GitHub-Actions:
+  Test-code:
+    name: Testing
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v2
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
+      - name: Compile test code 
+        run: | 
+          make test
+          cd test
+          make test
+      - name: Run unit tests
         run: |
-          ls ${{ github.workspace }}
+          cd test
+          chmod +x testscript.sh
+          ./testscript.sh unit
+        shell: bash
+      - name: Compile code and run blackbox tests
+        run: |
+          make all
+          cd test
+          chmod +x testscript.sh
+          ./testscript.sh 14
+        shell: bash    
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: .
+          retention-days: 5
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  Run-code: # Create job run code just to see how download artifact works
+    name: Running
+    needs: Test-code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: my-artifact
+      - name:
+        run: |
+          chmod +x ./bin/main
+          ./bin/main
+        shell: bash
