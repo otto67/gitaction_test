@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-name: C/C++ CI
-=======
 name: CI/CD test using C++ 
->>>>>>> develop
 on: 
     push:
       branches: [ master, develop ]
