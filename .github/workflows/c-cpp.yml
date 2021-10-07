@@ -32,7 +32,8 @@ jobs:
         shell: bash
   Upload-code:
     name: Testing
-    needs: Test-code      
+    needs: Test-code
+    steps:      
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v2
         with:
