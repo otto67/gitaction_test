@@ -27,7 +27,8 @@ jobs:
           ls -R
       - name: Run test code
         run: |
+          cd test
           chmod +x testscript.sh
           chmod +x main.cpp
-
+          ./tester
       - run: echo "🍏 This job's status is ${{ job.status }}."
