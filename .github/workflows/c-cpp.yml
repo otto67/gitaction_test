@@ -18,6 +18,16 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-          ls src
+          
+      - name: Compile test code 
+        run: | 
+          make test
+          cd test
+          make test
           ls -R test
+      - name: Run test code
+        run: |
+          chmod +x testscript.sh
+          chmod +x main.cpp
+
       - run: echo "🍏 This job's status is ${{ job.status }}."
