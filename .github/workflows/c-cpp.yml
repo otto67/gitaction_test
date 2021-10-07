@@ -23,19 +23,4 @@ jobs:
           make test
           cd test
           make test
-      - name: Run test code
-        run: |
-          cd test
-          chmod +x testscript.sh
-          chmod +x main.cpp
-          ./testscript.sh unit
-      - name: Compile code
-          make all
-      - name: Run black box testing
-        run: |
-            cd test
-            ./testscript.sh 15
-      - name: Run code
-        run: |
-            ./bin/main
       - run: echo "🍏 This job's status is ${{ job.status }}."
