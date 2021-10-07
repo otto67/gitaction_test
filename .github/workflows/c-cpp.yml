@@ -24,5 +24,6 @@ jobs:
       - name: Run test code
         run: |
           cd test
-          testscript.sh unit
+          chmod +x testscript.sh
+          ./testscript.sh unit
       - run: echo "🍏 This job's status is ${{ job.status }}."
