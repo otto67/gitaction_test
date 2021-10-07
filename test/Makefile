@@ -4,11 +4,9 @@ CXX_FLAGS := -std=c++17
 LIB := ./lib
 INCLUDE := ../include
 
-# -l testlib does not work 
 
 test:
-	$(CXX) $(CXX_FLAGS) -L$(LIB) -I$(INCLUDE) *.o main.cpp -o tester
+	$(CXX) $(CXX_FLAGS) -L$(LIB) -I$(INCLUDE) main.cpp -ltestlib -o tester
 
 clean:
-	-rm *.exe *.o
-	
+	-rm *.exe

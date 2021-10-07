@@ -18,8 +18,8 @@ $(BIN)/$(EXECUTABLE): $(SRC)/*.cpp
 	$(CXX) $(CXX_FLAGS) -I$(INCLUDE) $^ -o $@ $(LIBRARIES)
 
 test: clean $(SRC)/*Class.o
-	ar -rcs $(TESTLIB)/libtestlib.a *.o # This does not work: unresolved symbols 
-	mv *.o test # temporary fix
+	ar rcs $(TESTLIB)/libtestlib.a *.o  
+	-rm *.o
 
 $(SRC)/*Class.o: $(SRC)/*Class.cpp
 	$(CXX) $(CXX_FLAGS) -c -I$(INCLUDE) $^
