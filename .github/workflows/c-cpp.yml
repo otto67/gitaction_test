@@ -31,6 +31,7 @@ jobs:
           ./testscript.sh 14
         shell: bash
   Upload-code:
+    runs-on: ubuntu-latest
     name: Testing
     needs: Test-code
     steps:      
