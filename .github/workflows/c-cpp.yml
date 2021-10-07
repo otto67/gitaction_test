@@ -48,5 +48,6 @@ jobs:
         uses: actions/checkout@v2
       - name:
         run: |
+          ls -R
           ./bin/main
         shell: bash
