@@ -33,5 +33,5 @@ jobs:
           cd test
           chmod +x testscript.sh
           ./testscript.sh 14
-          shell: bash
+        shell: bash
       - run: echo "🍏 This job's status is ${{ job.status }}."
