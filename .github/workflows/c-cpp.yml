@@ -53,6 +53,6 @@ jobs:
           name: my-artifact
       - name:
         run: |
-          ls -R
+          chmox +x ./bin/main
           ./bin/main
         shell: bash
