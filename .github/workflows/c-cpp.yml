@@ -1,4 +1,4 @@
-name: CI test using C++ 
+name: CI/CD test using C++ 
 on: 
     push:
       branches: [ master, develop ]
