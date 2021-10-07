@@ -39,5 +39,4 @@ jobs:
       - name: Run code
         run: |
             ./bin/main
-
       - run: echo "🍏 This job's status is ${{ job.status }}."
