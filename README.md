@@ -1,11 +1,8 @@
 # Introduction 
-TODO: This is a test repository to learn GitHub actions
-
-# Getting Started
+TODO: This is a test repository to learn about GitHub actions. The repository contains 
+simple C++ code and C# code being tested and deployed through different yml-files. 
 
 # Build and Test
-TODO: Describe and show how to build your code and run the tests. 
-
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
+The C++ code is built using makefiles and the C# code is built using the dotnet-CLI.
+Unit testing is performed through GitHub actions using a unit test program for C++ and the
+Xunit library for C#.
