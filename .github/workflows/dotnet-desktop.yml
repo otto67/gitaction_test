@@ -37,6 +37,12 @@ jobs:
         dotnet test --no-restore
   Runapp: 
     runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v1.7.2
+      with:
+        dotnet-version: 5.0.x
     - name: RunApp
       run: |
         cd csharp/csprogram
