@@ -35,7 +35,9 @@ jobs:
       run: | 
         cd csharp/
         dotnet test --no-restore
-    
+  run: 
+    name: Runs the executable
+    runs-on: windows-latest
     - name: RunApp
       run: |
         cd csharp/csprogram
