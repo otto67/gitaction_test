@@ -33,10 +33,10 @@ jobs:
  
     - name: Test
       run: | 
-        cd csharp
+        cd csharp/
         dotnet test --no-restore
     
     - name: RunApp
       run: |
-        cd csharp
-        dotnet run -c Release
+        cd csharp/csprogram
+        dotnet run
