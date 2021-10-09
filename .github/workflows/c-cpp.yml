@@ -2,6 +2,9 @@ name: CI/CD test using C++
 on: 
     push:
       branches: [ master, develop ]
+      paths-ignore:
+        - 'csharp'
+        - '.github\workflows\dotnet-desktop.yml'
     pull_request:
       branches: [ master ]
     
