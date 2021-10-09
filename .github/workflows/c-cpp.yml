@@ -4,7 +4,7 @@ on:
       branches: [ master, develop ]
       paths-ignore:
         - 'csharp'
-        - '.github\workflows\dotnet-desktop.yml'
+        - '.github/workflows/dotnet-desktop.yml'
     pull_request:
       branches: [ master ]
     
