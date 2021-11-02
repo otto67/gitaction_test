@@ -15,11 +15,11 @@ on:
       runs-on: ubuntu-latest
       steps:
         - name: Initialize Python
-        - uses: actions/checkout@master
-        - name: Install dependencies
-        - uses: actions/setup-python@v1
+        - uses: actions/checkout@v2
+        - uses: actions/setup-python@v2
         with:
           python-version: 3.7
+      - name Install dependencies
         run: |
           cd python
           python -m venv .venv
