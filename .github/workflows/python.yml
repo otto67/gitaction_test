@@ -31,7 +31,7 @@ on:
             python -m pip install --upgrade pip setuptools wheel
             pip install -r requirements.txt
 
-        -name: 'Unit testing'
+        - name: Unit testing
           run: |
             cd python
             python -m unittest discover -s unit_test -p unittester.py
