@@ -1,0 +1,44 @@
+name: Python CI pipeline
+
+on:
+  push:
+    branches: [ develop, master ]
+    paths:
+      - 'python'
+      - '.github/workflows/python.yml'
+  pull_request:
+    branches: [ master ]
+  jobs:
+  build-n-publish:
+    name: Build and publish Python distribution
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@master
+        - name: Initialize Python 3.9
+        - uses: actions/setup-python@v1
+        with:
+            python-version: 3.9
+        - name: Install dependencies
+      run: |
+        cd python
+        python -m venv .venv
+        source .venv/bin/activate
+
+      run: |
+        cd python
+        python -m pip install --upgrade pip setuptools wheel
+        pip install -r requirements.txt
+      - name: Install dependencies
+    
+    Comment: >
+      run: |
+        cd python
+        python -m unittest discover -s unit_test -p unittester.py
+      -name: 'Unit testing'
+      
+        run: python setup.py sdist
+        - name: Publish distribution to Test PyPI
+        uses: pypa/gh-action-pypi-publish@master
+        with:
+            password: ${{ secrets.test_pypi_password }}
+            repository_url: https://test.pypi.org/legacy/
