@@ -14,9 +14,9 @@ on:
       name: Build and publish Python files
       runs-on: ubuntu-latest
       steps:
+        - name: Initialize Python
         - uses: actions/checkout@master
-        - name: Initialize Python 3.9
-        uses: actions/setup-python@v1
+        - uses: actions/setup-python@v1
         with:
           python-version: 3.7
         - name: Install dependencies
