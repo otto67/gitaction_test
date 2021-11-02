@@ -35,7 +35,7 @@ jobs:
           cd python
           python -m unittest discover -s unit_test -p unittester.py
 
-Description: >  
+Comment: >  
         run: python setup.py sdist
         - name: Publish distribution to Test PyPI
         uses: pypa/gh-action-pypi-publish@master
