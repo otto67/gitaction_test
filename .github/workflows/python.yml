@@ -20,21 +20,22 @@ on:
           with:
             python-version: 3.7
 
-        - name Install dependencies
-        run: |
-          cd python
-          python -m venv .venv
-          source .venv/bin/activate
+        - name: Install dependencies
+          run: |
+            cd python
+            python -m venv .venv
+            source .venv/bin/activate
 
-        run: |
-          cd python
-          python -m pip install --upgrade pip setuptools wheel
-          pip install -r requirements.txt
-    
-        run: |
-          cd python
-          python -m unittest discover -s unit_test -p unittester.py
+          run: |
+            cd python
+            python -m pip install --upgrade pip setuptools wheel
+            pip install -r requirements.txt
+
         -name: 'Unit testing'
+          run: |
+            cd python
+            python -m unittest discover -s unit_test -p unittester.py
+        
 
         Comment: >  
         run: python setup.py sdist
