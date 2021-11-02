@@ -11,12 +11,12 @@ on:
 
 jobs:
   build-n-publish:
-    name: Build and publish Python files
+  - name: Build and publish Python files
     runs-on: ubuntu-latest
     steps:
       - name: Initialize Python
-        uses: actions/checkout@v2
-        uses: actions/setup-python@v2
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
         with:
           python-version: 3.7
 
