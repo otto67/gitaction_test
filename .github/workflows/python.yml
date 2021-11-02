@@ -8,9 +8,10 @@ on:
       - '.github/workflows/python.yml'
   pull_request:
     branches: [ master ]
+
   jobs:
-  build-n-publish:
-    name: Build and publish Python distribution
+    build-n-publish:
+    name: Build and publish Python files
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -28,14 +29,13 @@ on:
         cd python
         python -m pip install --upgrade pip setuptools wheel
         pip install -r requirements.txt
-      - name: Install dependencies
     
-    Comment: >
       run: |
         cd python
         python -m unittest discover -s unit_test -p unittester.py
       -name: 'Unit testing'
-      
+
+        Comment: >  
         run: python setup.py sdist
         - name: Publish distribution to Test PyPI
         uses: pypa/gh-action-pypi-publish@master
