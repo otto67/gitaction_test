@@ -34,11 +34,11 @@ jobs:
         run: |
           cd python
           python -m unittest discover -s unit_test -p unittester.py
-
-Comment: >  
-        run: python setup.py sdist
-        - name: Publish distribution to Test PyPI
-        uses: pypa/gh-action-pypi-publish@master
-        with:
-            password: ${{ secrets.test_pypi_password }}
-            repository_url: https://test.pypi.org/legacy/
+      - name: Run Python program
+        run: python ./python/app.py 
+        
+        #name: Publish distribution to Test PyPI
+        # uses: pypa/gh-action-pypi-publish@master
+        #with:
+         #   password: ${{ secrets.test_pypi_password }}
+         #   repository_url: https://test.pypi.org/legacy/
