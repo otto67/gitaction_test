@@ -24,9 +24,5 @@ test: clean $(SRC)/*Class.o
 $(SRC)/*Class.o: $(SRC)/*Class.cpp
 	$(CXX) $(CXX_FLAGS) -c -I$(INCLUDE) $^
 
-
-fresh:
-	-rm *.o
-
 clean:
 	-rm $(BIN)/*
