@@ -19,17 +19,19 @@ jobs:
         uses: actions/checkout@v2
       - name: Compile test code 
         run: | 
+          cd cpp
           make test
           cd test
           make test
       - name: Run unit tests
         run: |
-          cd test
+          cd cpp/test
           chmod +x testscript.sh
           ./testscript.sh unit
         shell: bash
       - name: Compile code and run blackbox tests
         run: |
+          cd cpp
           make all
           cd test
           chmod +x testscript.sh
@@ -53,6 +55,7 @@ jobs:
           name: my-artifact
       - name:
         run: |
+          cd cpp
           chmod +x ./bin/main
           ./bin/main
         shell: bash
