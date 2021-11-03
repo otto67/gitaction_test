@@ -20,7 +20,7 @@ jobs:
       - name: Compile test code 
         run: | 
           cd cpp
-          make clean
+          ls -l
           make test
           cd test
           make test
