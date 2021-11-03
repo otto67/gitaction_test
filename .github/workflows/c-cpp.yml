@@ -20,9 +20,10 @@ jobs:
       - name: Compile test code 
         run: | 
           cd cpp
-          ls -l
+          ls -a
           make test
           cd test
+          ls -a
           make test
       - name: Run unit tests
         run: |
