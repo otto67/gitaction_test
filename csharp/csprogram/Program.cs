@@ -14,6 +14,7 @@ namespace csprogram
             tmp.myIfMethod();
             tmp1.printData();
             tmp1.myIfMethod();
+            tmp1 = null;
         }
     }
 }
