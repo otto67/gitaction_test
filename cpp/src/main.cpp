@@ -2,6 +2,8 @@
 #include "SecondClass.h"
 #include "FirstClass.h"
 
+int glob a = 1;
+
 myData myFunc1(void* data){
     myData* tmp = (myData*) data;
     myData retval {tmp->a*5, tmp->b*10};
