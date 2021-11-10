@@ -23,7 +23,6 @@ jobs:
           ls -a
           make test
           cd test
-          ls -a
           make test
       - name: Run unit tests
         run: |
